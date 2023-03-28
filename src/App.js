@@ -3,11 +3,9 @@ import './App.css'
 import butcherPigImage from './assets/butcherPig.jpeg'
 
 const App = () => {
-
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
-  const [userInput, setUserInput] = useState("apple through queen squeal fry fluent")
+  const [userInput, setUserInput] = useState(" ")
   const [inputTranslated, setInputTranslated] = useState("")
-
   // ACTION ITEM: the "myPigLatinCodeHere" function is where you will put your logic to translate the sentence entered by the user into Pig Latin
   const myPigLatinCodeHere = () => {
 
@@ -30,14 +28,51 @@ const App = () => {
         )
       })
       console.log("vowelsArray:", vowelsArray)
-
+      
       // ACTION ITEM: your Pig Latin logic goes here!
+      // comment: we are taking vowelsArray and asking if the first letter, of eachWord, is included in the array.
+      // If true, reassign eachWord to equal eachWord plus the string "way"
+      // Then return the new value of eachWord
+ if (vowelsArray.includes(eachWord[0])){
+  eachWord = eachWord + "way"
+  // Pseudo
+  // Input: any word with qu at the start
+  // output: word with qu moved to the end plus ay
+  // use an else if statement 
+  // Make eachWord include the string elements qu
+  // create a new variable named quIndex to find the index of u
+  // then we created a variable called firstSyllable to make a subset of every value before u
+  //  then we created a variable called restOfWord to make a subset of every value after u
+  // then we console.log the restOfword subset and added it to the firstSyllable subset
+  // finally we redefined eachWord to return resOfWord subset plus firstSyllable plus "ay"
+  
+ } else if (eachWord.includes("qu")){
+   const quIndex = eachWord.indexOf("u")
+   const firstSyllable = eachWord.slice(0,quIndex + 1)
+   const restOfWord = eachWord.slice(quIndex + 1,eachWord.length)
+   console.log(restOfWord.concat(firstSyllable))
+   eachWord = restOfWord.concat(firstSyllable).concat("ay")
 
+  }
+    // .slice to remove the qu from the beginning of the word
+
+  return eachWord 
+
+ })
     
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
-      return eachWord
-    })
+      // Pseudo
+      // Input: a word beginning with a vowel
+      // Output: words beginning with a vowel translated to add "way" the end
+      // Example: apple = appleway
+      //  .split = ["a", "p", "p", "l", "e"]
+      // create a function firstLetterVowel that takes in a string
+      // determine if the first character value is a vowel
+      // if yes, return the word plus "way" at the end using string interpilation
+      // if no return N/A
+
+    
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
