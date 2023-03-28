@@ -53,8 +53,30 @@ const App = () => {
    console.log(restOfWord.concat(firstSyllable))
    eachWord = restOfWord.concat(firstSyllable).concat("ay")
 
-  }
-    // .slice to remove the qu from the beginning of the word
+  } else if (eachWord.includes("y")) {
+    const yIndex = eachWord.indexOf("y")
+    const firstCons = eachWord.slice(0, yIndex)
+    const endOfWord = eachWord.slice(yIndex, eachWord.length)
+    console.log(endOfWord.concat(firstCons))
+    eachWord = endOfWord.concat(firstCons).concat("ay")
+
+  } 
+  // else (eachWord.includes("")) {
+  //     const indexOfFirstVowel = eachWord.indexOf(vowelsArray)
+  //     const beginningCons = eachWord.slice(0, indexOfFirstVowel)
+  //     const endOfWord = eachWord.slice(yIndex, eachWord.length)
+  //     console.log(endOfWord.concat(firstCons))
+  //     eachWord = endOfWord.concat(firstCons).concat("ay")
+  
+  // }
+    
+  
+  
+  
+  
+  
+  
+  // Pseudocode:
 
   return eachWord 
 
